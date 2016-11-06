@@ -24,7 +24,7 @@ public class WinnerWindow extends JWindow{
 	public final int HEIGHT=250;
 	
 	private Horse winner;
-	private JButton btn_exit;
+
 	
 	public WinnerWindow(Horse winner){
 		this.setAlwaysOnTop(true);
@@ -32,6 +32,7 @@ public class WinnerWindow extends JWindow{
 		this.setVisible(true);
 		this.setLayout(new FlowLayout());
 		this.winner=winner;
+		
 		Dimension frameSize = getSize();
 		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();		
 		setLocation((windowSize.width - frameSize.width) / 2,
@@ -42,24 +43,31 @@ public class WinnerWindow extends JWindow{
 	}
 	
 	class WinerPanel extends JPanel{
+		private JButton btn_exit;
+		private JLabel winnerGraphic;
+		
 		WinerPanel(){
 			this.setLayout(null);
 			this.setBackground(new Color(255, 0,0,0));
-			JLabel winnerGraphic= new JLabel();
+			winnerGraphic= new JLabel();
 			winnerGraphic.setIcon(winner.getGraphic().getIcon());
 			winnerGraphic.setSize(80,80);			
 			winnerGraphic.setLocation(210,80);
 			add(winnerGraphic);	
 			
 			btn_exit =new JButton();
+			btn_exit.setSize(70,35);
+			btn_exit.setLocation(210,180);
 			btn_exit.setOpaque(false);
 			btn_exit.setBorderPainted(false);
-			btn_exit.setFocusPainted(false); 
+			btn_exit.setFocusPainted(false);
 			btn_exit.setContentAreaFilled(false);
 			btn_exit.setSize(70,35);
-			btn_exit.setLocation(100,150);
 			btn_exit.setIcon(new ImageIcon("images/btn_exit.jpg"));
 			btn_exit.setRolloverIcon(new ImageIcon("images/btn_exit_rollover.jpg"));
+	
+			
+			this.add(btn_exit);
 			
 			btn_exit.addActionListener(new ActionListener() {				
 				public void actionPerformed(ActionEvent e) {
@@ -67,7 +75,7 @@ public class WinnerWindow extends JWindow{
 				}
 			});
 			
-			this.add(btn_exit);
+	
 		}
 		
 		public void paintComponent(Graphics g){

@@ -34,6 +34,7 @@ public class RandModeThread extends Thread{
 			try{
 				Thread.sleep(1000);
 			}catch (Exception e) {
+				return ;
 			}
 			
 		}

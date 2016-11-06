@@ -37,7 +37,7 @@ public class GameLogic {
 		Iterator<Horse> iter=horses.iteraoter();		
 		while(iter.hasNext()){
 			Horse horse=iter.next();
-			horse.stop();			
+			horse.stop();		
 		}
 		
 		horseGraphicMover.interrupt();

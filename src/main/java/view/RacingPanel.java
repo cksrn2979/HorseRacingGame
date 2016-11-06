@@ -25,22 +25,19 @@ public class RacingPanel extends JPanel{
 		HorseRunners horses=HorseRunners.getInstance();
 		
 		Horse horse1=horses.getHorse(0);
-		horse1.setIcon(new ImageIcon("images/horse1.gif"));
+	
 		horse1.setLocation(horse1.getMeter(),0);
 		this.add(horse1.getGraphic());
 		
 		Horse horse2=horses.getHorse(1);
-		horse2.setIcon(new ImageIcon("images/horse2.gif"));
 		horse2.setLocation(horse2.getMeter(),75);
 		this.add(horse2.getGraphic());
 		
 		Horse horse3=horses.getHorse(2);
-		horse3.setIcon(new ImageIcon("images/horse3.gif"));
 		horse3.setLocation(horse3.getMeter(),160);
 		this.add(horse3.getGraphic());
 		
 		Horse horse4=horses.getHorse(3);
-		horse4.setIcon(new ImageIcon("images/horse4.gif"));
 		horse4.setLocation(horse4.getMeter(),240);
 		this.add(horse4.getGraphic());
 		

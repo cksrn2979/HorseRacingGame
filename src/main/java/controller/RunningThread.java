@@ -13,7 +13,7 @@ public class RunningThread extends Thread{
 		int location = horse.getMeter();
 		int speed;
 		
-		while(location<800){
+		while(true){
 			location=horse.getMeter();
 			speed=horse.getSpeed();
 			horse.setMeter(location+speed);
