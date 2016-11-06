@@ -10,8 +10,8 @@ import javax.swing.JPanel;
 import model.Horse;
 
 public class CenterPanel extends JPanel{
-	private final int WIDTH=1000;
-	private final int HEIGHT=400;
+	public final int WIDTH=1000;
+	public final int HEIGHT=400;
 	private RacingPanel racingPanel;
 	
 	public CenterPanel(){
@@ -20,7 +20,7 @@ public class CenterPanel extends JPanel{
 		this.setLayout(null);
 		
 		racingPanel=new RacingPanel();
-		racingPanel.setSize(900,300);
+		racingPanel.setSize(racingPanel.WIDTH,racingPanel.HEIGHT);
 		racingPanel.setLocation(50, 45);
 		this.add(racingPanel);
 		

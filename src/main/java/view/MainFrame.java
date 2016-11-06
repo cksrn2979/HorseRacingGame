@@ -12,11 +12,10 @@ public class MainFrame extends JFrame{
 	private JPanel northPanel;
 	private JPanel southPanel;
 	private JPanel centerPanel;
-	private final int WIDTH=1000;
-	private final int HEIGHT=600;
+	public final int WIDTH=1000;
+	public final int HEIGHT=600;
 	
-	public MainFrame(){
-	
+	public MainFrame(){	
 		this.setVisible(true);	
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(WIDTH, HEIGHT);
@@ -36,5 +35,7 @@ public class MainFrame extends JFrame{
 		this.add(northPanel,BorderLayout.NORTH);
 		this.add(centerPanel,BorderLayout.CENTER);
 		this.add(southPanel,BorderLayout.SOUTH);
+		
+		this.revalidate();
 	}	
 }

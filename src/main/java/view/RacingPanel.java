@@ -3,17 +3,19 @@ package view;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
+import java.util.Iterator;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import controller.HorseGraphicMover;
+import controller.HorseMoverThread;
 import model.Horse;
 import service.HorseRunners;
 
 public class RacingPanel extends JPanel{
-	private final int WIDTH=800;
-	private final int HEIGHT=300;
+	public final int WIDTH=900;
+	public final int HEIGHT=300;
 	
 	public RacingPanel(){
 		this.setPreferredSize(new Dimension(WIDTH,HEIGHT));

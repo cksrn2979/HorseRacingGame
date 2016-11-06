@@ -8,13 +8,13 @@ import javax.swing.JPanel;
 import model.Horse;
 import service.HorseRunners;
 
-public class HorseGraphicMover implements Runnable{
-	private JPanel panel;
+public class HorseMoverThread implements Runnable{
+	private JPanel racingpanel;
 	private HorseRunners horses;
 	
-	public HorseGraphicMover(){
+	public HorseMoverThread(){
 		horses= HorseRunners.getInstance();
-		panel=(JPanel) horses.getHorse(0).getGraphic().getParent();
+		racingpanel=(JPanel) horses.getHorse(0).getGraphic().getParent();
 	}
 
 	public void run() {
@@ -27,7 +27,7 @@ public class HorseGraphicMover implements Runnable{
 				horse.getGraphic().setLocation(p);
 			}
 			
-			panel.repaint();
+			racingpanel.repaint();
 			try{
 				Thread.sleep(100);
 			}catch (Exception e) {
@@ -36,9 +36,5 @@ public class HorseGraphicMover implements Runnable{
 		}
 	}
 	
-	public void startMove(){
-		Thread th=new Thread(this);
-		th.start();
-	}
 
 }

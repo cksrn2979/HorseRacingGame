@@ -2,10 +2,10 @@ package controller;
 
 import model.Horse;
 
-public class Running implements Runnable{
+public class RunningThread extends Thread{
 	private Horse horse;
 
-	public Running(Horse horse){
+	public RunningThread(Horse horse){
 		this.horse=horse;
 	}
 	
@@ -15,11 +15,11 @@ public class Running implements Runnable{
 		
 		while(location<800){
 			location=horse.getMeter();
-			speed=horse.getRunningMode().getSpeed();
+			speed=horse.getSpeed();
 			horse.setMeter(location+speed);
 			
 			if(location>=800)
-				GameLogic.getInsatnce().gameover();
+				GameLogic.getInsatnce().gameover(horse);
 			
 			try{
 				Thread.sleep(100);

@@ -6,8 +6,12 @@ import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,11 +20,14 @@ import javax.swing.JWindow;
 import model.Horse;
 
 public class WinnerWindow extends JWindow{
-	private final int WIDTH=500;
-	private final int HEIGHT=250;
+	public final int WIDTH=500;
+	public final int HEIGHT=250;
+	
 	private Horse winner;
+	private JButton btn_exit;
 	
 	public WinnerWindow(Horse winner){
+		this.setAlwaysOnTop(true);
 		this.setSize(WIDTH,HEIGHT);
 		this.setVisible(true);
 		this.setLayout(new FlowLayout());
@@ -41,8 +48,26 @@ public class WinnerWindow extends JWindow{
 			JLabel winnerGraphic= new JLabel();
 			winnerGraphic.setIcon(winner.getGraphic().getIcon());
 			winnerGraphic.setSize(80,80);			
-			winnerGraphic.setLocation(210,100);
-			add(winnerGraphic);		
+			winnerGraphic.setLocation(210,80);
+			add(winnerGraphic);	
+			
+			btn_exit =new JButton();
+			btn_exit.setOpaque(false);
+			btn_exit.setBorderPainted(false);
+			btn_exit.setFocusPainted(false); 
+			btn_exit.setContentAreaFilled(false);
+			btn_exit.setSize(70,35);
+			btn_exit.setLocation(100,150);
+			btn_exit.setIcon(new ImageIcon("images/btn_exit.jpg"));
+			btn_exit.setRolloverIcon(new ImageIcon("images/btn_exit_rollover.jpg"));
+			
+			btn_exit.addActionListener(new ActionListener() {				
+				public void actionPerformed(ActionEvent e) {
+					System.exit(1);
+				}
+			});
+			
+			this.add(btn_exit);
 		}
 		
 		public void paintComponent(Graphics g){

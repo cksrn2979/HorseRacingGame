@@ -3,12 +3,14 @@ package model;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import controller.Running;
+import controller.RandModeThread;
+import controller.RunningThread;
 
 public class Horse{
+	private RunningThread runningThread;
+	private RandModeThread randModeThread;
 	private JLabel graphic;
-	private Thread running;
-	private SpeedMode runningMode;
+	private SpeedMode speedMode;
 	private final int WIDTH=80;
 	private final int HEIGHT=80;
 	private int meter;
@@ -17,7 +19,7 @@ public class Horse{
 		this.meter=0;
 		graphic=new JLabel();
 		graphic.setSize(WIDTH,HEIGHT);
-		runningMode=new DefaultSpeedMode();
+		speedMode=new DefaultSpeedMode();
 	}
 
 	public void setIcon(ImageIcon icon) {
@@ -33,11 +35,11 @@ public class Horse{
 	}
 
 	public SpeedMode getRunningMode() {
-		return runningMode;
+		return speedMode;
 	}
 
 	public void setRunningMode(SpeedMode runningMode) {
-		this.runningMode = runningMode;
+		this.speedMode = runningMode;
 	}
 	
 	public int getMeter() {
@@ -47,13 +49,20 @@ public class Horse{
 	public void setMeter(int meter) {
 		this.meter=meter;
 	}
+	
+	public int getSpeed(){
+		return speedMode.getSpeed();
+	}
 
 	public void run(){
-		running=new Thread(new Running(this));
-		running.start();
+		runningThread=new RunningThread(this);
+		runningThread.start();
+		randModeThread = new RandModeThread(this);
+		randModeThread.start();
 	}
 	
 	public void stop(){
-		running.interrupt();
+		runningThread.interrupt();
+		randModeThread.interrupt();
 	}
 }
