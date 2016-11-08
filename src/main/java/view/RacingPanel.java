@@ -24,8 +24,7 @@ public class RacingPanel extends JPanel{
 		
 		HorseRunners horses=HorseRunners.getInstance();
 		
-		Horse horse1=horses.getHorse(0);
-	
+		Horse horse1=horses.getHorse(0);	
 		horse1.setLocation(horse1.getMeter(),0);
 		this.add(horse1.getGraphic());
 		
@@ -43,6 +42,22 @@ public class RacingPanel extends JPanel{
 		
 	}
 	
+	private void horseRepaint(){
+		HorseRunners horses=HorseRunners.getInstance();
+		Iterator<Horse> iter=horses.iteraoter();
+		while(iter.hasNext()){
+			Horse horse=iter.next();
+			Point p=horse.getGraphic().getLocation();
+			horse.setLocation(horse.getMeter(), p.y);
+		}
+	}
+	
+
+	public void repaint() {	
+		super.repaint();
+		horseRepaint();
+	}
+
 	public void paintComponent(Graphics g){
 		ImageIcon icon=new ImageIcon("images/background.jpg");
 		Image img=icon.getImage();

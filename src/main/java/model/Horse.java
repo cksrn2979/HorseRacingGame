@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Point;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -32,6 +34,10 @@ public class Horse{
 	
 	public void setLocation(int x, int y){
 		graphic.setLocation(x,y);
+	}
+	
+	public Point getLocation(){
+		return graphic.getLocation();
 	}
 
 	public SpeedMode getRunningMode() {

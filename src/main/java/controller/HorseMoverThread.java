@@ -1,11 +1,7 @@
 package controller;
 
-import java.awt.Point;
-import java.util.Iterator;
-
 import javax.swing.JPanel;
 
-import model.Horse;
 import service.HorseRunners;
 
 public class HorseMoverThread implements Runnable{
@@ -19,14 +15,6 @@ public class HorseMoverThread implements Runnable{
 
 	public void run() {
 		while(true){
-			Iterator<Horse> iter=horses.iteraoter();
-			while(iter.hasNext()){
-				Horse horse=iter.next();
-				Point p=horse.getGraphic().getLocation();
-				p.setLocation(horse.getMeter(),p.y);
-				horse.getGraphic().setLocation(p);
-			}
-			
 			racingpanel.repaint();
 			try{
 				Thread.sleep(100);
