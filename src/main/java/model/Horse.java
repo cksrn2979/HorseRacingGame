@@ -11,6 +11,9 @@ import controller.RunningThread;
 public class Horse{
 	private RunningThread runningThread;
 	private RandModeThread randModeThread;
+	.
+	.
+}
 	private JLabel graphic;
 	private SpeedMode speedMode;
 	private final int WIDTH=80;
