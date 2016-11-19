@@ -11,9 +11,8 @@ public class RunningThread extends Thread{
 	
 	public void run() {
 		int location = horse.getMeter();
-		int speed;
-		
-		while(true){
+		int speed;		
+		while(GameLogic.getInsatnce().getPlay()){
 			location=horse.getMeter();
 			speed=horse.getSpeed();
 			horse.setMeter(location+speed);

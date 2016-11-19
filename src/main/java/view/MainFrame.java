@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class MainFrame extends JFrame{
+	
 	private JPanel northPanel;
 	private JPanel southPanel;
 	private JPanel centerPanel;

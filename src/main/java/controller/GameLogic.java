@@ -9,11 +9,18 @@ import view.WinnerWindow;
 public class GameLogic {
 	private static final GameLogic instance=new GameLogic();
 	private HorseRunners horses;
-	private Thread horseGraphicMover;
 	private Boolean play=false;
 	
 	public static GameLogic getInsatnce(){
 		return instance;
+	}
+	
+	public Boolean getPlay() {
+		return play;
+	}
+
+	public void setPlay(Boolean play) {
+		this.play = play;
 	}
 
 	public void gamestart(){
@@ -28,20 +35,10 @@ public class GameLogic {
 			horse.run();			
 		}
 		
-		horseGraphicMover=new Thread(new HorseMoverThread());
-		horseGraphicMover.start();		
 	}
 	
-	public void gameover(Horse winner){
-		
-		Iterator<Horse> iter=horses.iteraoter();		
-		while(iter.hasNext()){
-			Horse horse=iter.next();
-			horse.stop();		
-		}
-		
-		horseGraphicMover.interrupt();
-		
+	public void gameover(Horse winner){		
+		play=false;
 		new WinnerWindow(winner);
 	}
 }

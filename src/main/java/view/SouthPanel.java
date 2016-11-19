@@ -31,7 +31,6 @@ public class SouthPanel extends JPanel{
 		btn_start.setSize(70,35);
 		btn_start.setIcon(new ImageIcon("images/btn_start.jpg"));
 		btn_start.setRolloverIcon(new ImageIcon("images/btn_start_rollover.jpg"));
-		
 
 		this.add(btn_start);
 		

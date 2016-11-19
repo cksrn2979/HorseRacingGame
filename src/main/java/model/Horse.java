@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Point;
+import java.util.Observable;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -8,8 +9,9 @@ import javax.swing.JLabel;
 import controller.RandModeThread;
 import controller.RunningThread;
 
-public class Horse{
+public class Horse extends Observable{
 	private RunningThread runningThread;
+
 	private RandModeThread randModeThread;
 
 	private JLabel graphic;
@@ -23,6 +25,7 @@ public class Horse{
 		graphic=new JLabel();
 		graphic.setSize(WIDTH,HEIGHT);
 		speedMode=new DefaultSpeedMode();
+	
 	}
 
 	public void setIcon(ImageIcon icon) {
@@ -55,6 +58,8 @@ public class Horse{
 
 	public void setMeter(int meter) {
 		this.meter=meter;
+		this.setChanged();
+		this.notifyObservers();
 	}
 	
 	public int getSpeed(){

@@ -25,7 +25,7 @@ public class RandModeThread extends Thread{
 	}
 
 	public void run() {
-		while(true){
+		while(GameLogic.getInsatnce().getPlay()){
 			int random = (int) (Math.random() * 4);
 			SpeedMode mode= modes.get(random);
 			
